@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.dot {
+  transition: transform 0.3s ease-in-out;
+}
+
+input:checked ~ .dot {
+  transform: translateX(1.5rem);
+}
+
+.sun-rays line {
+  transition: stroke 0.5s ease-in-out, transform 0.5s ease-in-out;
+}
+
+.sun-rays line {
+  transform-origin: center;
+}
+
+.sun-rays line:nth-child(1) {
+  transform: scaleY(1);
+}
+
+.sun-rays line:nth-child(2) {
+  transform: scaleY(1);
+}
+
+.sun-rays line:nth-child(3) {
+  transform: scale(1);
+}
+
+.sun-rays line:nth-child(4) {
+  transform: scale(1);
+}
+
+.sun-rays line:nth-child(5) {
+  transform: scaleX(1);
+}
+
+.sun-rays line:nth-child(6) {
+  transform: scaleX(1);
+}
+
+.sun-rays line:nth-child(7) {
+  transform: scale(1);
+}
+
+.sun-rays line:nth-child(8) {
+  transform: scale(1);
+}
+
+.dark .sun-rays line {
+  stroke: white;
+  transform: scale(0.5);
+}
+
+.sun-rays line {
+  stroke: currentColor;
+  transform: scale(1.2);
+}
+
+.moon {
+  transition: opacity 0.5s ease-in-out;
+}
+
+.hidden {
+  opacity: 0;
+}
+
+.block {
+  opacity: 1;
+}
