@@ -13,46 +13,48 @@ const Navbar = () => {
           My<span className="text-blue-500 dark:text-yellow-500">Portfolio</span>
         </a>
 
-        {/* Navigation Links (centered) */}
-        <div className="flex-1 flex justify-center">
-          <ul className="flex space-x-10 text-lg items-center font-medium">
-            <li>
-              <a
-                href="#home"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300"
-              >
-                Home
-              </a>
-            </li>
-            <li>
-              <a
-                href="#about"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300"
-              >
-                About
-              </a>
-            </li>
-            <li>
-              <a
-                href="#projects"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300"
-              >
-                Projects
-              </a>
-            </li>
-            <li>
-              <a
-                href="#contact"
-                className="text-gray-700 dark:text-gray-300 hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300"
-              >
-                Contact
-              </a>
-            </li>
-          </ul>
-        </div>
+        {/* Navigation Links with margin for centering */}
+        <ul className="flex space-x-12 text-lg items-center font-medium mr-12 ">
+          <li className="relative group">
+            <a
+              href="#home"
+              className="text-gray-700 dark:text-gray-300 relative"
+            >
+              Home
+              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
+            </a>
+          </li>
+          <li className="relative group">
+            <a
+              href="#about"
+              className="text-gray-700 dark:text-gray-300 relative"
+            >
+              About
+              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
+            </a>
+          </li>
+          <li className="relative group">
+            <a
+              href="#projects"
+              className="text-gray-700 dark:text-gray-300 relative"
+            >
+              Projects
+              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
+            </a>
+          </li>
+          <li className="relative group">
+            <a
+              href="#contact"
+              className="text-gray-700 dark:text-gray-300 relative"
+            >
+              Contact
+              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
+            </a>
+          </li>
+        </ul>
 
         {/* Dark Mode Switch */}
-        <div className="ml-4">
+        <div className="ml-6">
           <DarkModeSwitch />
         </div>
       </div>
