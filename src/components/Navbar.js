@@ -8,14 +8,14 @@ const Navbar = () => {
         {/* Logo */}
         <a
           href="#home"
-          className="text-3xl font-semibold text-gray-900 dark:text-white tracking-tight hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300 ease-in-out"
+          className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight hover:text-blue-500 dark:hover:text-yellow-500 transition-all duration-300 ease-in-out"
         >
           My<span className="text-blue-500 dark:text-yellow-500">Portfolio</span>
         </a>
 
-        {/* Navigation Links with margin for centering */}
-        <ul className="flex space-x-12 text-lg items-center font-medium mr-12 ">
-          <li className="relative group">
+        {/* Navigation Links with padding */}
+        <ul className="flex space-x-12 text-lg items-center font-medium mr-11">
+          <li className="relative group py-4">
             <a
               href="#home"
               className="text-gray-700 dark:text-gray-300 relative"
@@ -24,7 +24,7 @@ const Navbar = () => {
               <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
             </a>
           </li>
-          <li className="relative group">
+          <li className="relative group py-4">
             <a
               href="#about"
               className="text-gray-700 dark:text-gray-300 relative"
@@ -33,7 +33,7 @@ const Navbar = () => {
               <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
             </a>
           </li>
-          <li className="relative group">
+          <li className="relative group py-4">
             <a
               href="#projects"
               className="text-gray-700 dark:text-gray-300 relative"
@@ -42,7 +42,7 @@ const Navbar = () => {
               <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-500 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out origin-center rounded-full"></span>
             </a>
           </li>
-          <li className="relative group">
+          <li className="relative group py-4">
             <a
               href="#contact"
               className="text-gray-700 dark:text-gray-300 relative"
