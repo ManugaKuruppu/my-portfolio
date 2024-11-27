@@ -6,3 +6,48 @@ body.dark-mode {
   background-color: #1a202c;
   color: #cbd5e0;
 }
+
+/* Index.css */
+
+/* Star glow effect for dark mode */
+.star-glow {
+  animation: pulse 2s infinite;
+}
+
+/* Animation for stars */
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(0.8);
+    opacity: 1;
+  }
+}
+
+/* Cloud form animation for light mode */
+.cloud-form {
+  animation: cloud-appear 2s ;
+  width: 6rem;
+  height: 2rem;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.4;
+}
+
+/* Animation for cloud */
+@keyframes cloud-appear {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scale(0.5);
+  }
+  
+}
+
+
+

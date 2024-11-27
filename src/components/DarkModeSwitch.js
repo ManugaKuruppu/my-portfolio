@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import "../styles/index.css";
 
 const DarkModeToggle = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
@@ -49,7 +50,7 @@ const DarkModeToggle = () => {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="absolute rounded-full"
+                className="absolute rounded-full star-glow"
                 style={{
                   top: `${Math.random() * 70 + 15}%`,
                   left: `${Math.random() * 70 + 15}%`,
@@ -66,7 +67,7 @@ const DarkModeToggle = () => {
         {/* Clouds (only in light mode) */}
         {!isDarkMode && (
           <div
-            className="absolute inset-0"
+            className="absolute inset-0 cloud-animation"
             style={{
               clipPath: 'circle(50%)',
               zIndex: 0,
@@ -75,7 +76,7 @@ const DarkModeToggle = () => {
             {[...Array(2)].map((_, i) => (
               <div
                 key={i}
-                className="absolute w-5 h-2.5 bg-white rounded-full opacity-80"
+                className="absolute cloud-form"
                 style={{
                   top: `${25 + i * 15}%`,
                   left: `${10 + i * 20}%`,
@@ -115,13 +116,15 @@ const DarkModeToggle = () => {
 
       {/* Tooltip */}
       <div
-        className="absolute top-12 left-1/2 transform -translate-x-1/2 px-3 py-1 bg-black text-white text-sm rounded-md opacity-0 group-hover:opacity-100 transition-opacity duration-300 shadow-lg"
+        className="absolute top-12 left-1/2 transform -translate-x-1/2 px-4 py-2 bg-gray-700 text-white text-sm rounded-lg shadow-lg z-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
         style={{
-          pointerEvents: 'none', // Prevents interaction
-          whiteSpace: 'nowrap',
+          minWidth: '160px',
+          textAlign: 'center',
+          border: '1px solid rgba(255, 255, 255, 0.2)',
+          fontWeight: '500',
         }}
       >
-        {isDarkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+        {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
       </div>
     </div>
   );
