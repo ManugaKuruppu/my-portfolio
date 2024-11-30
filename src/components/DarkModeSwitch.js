@@ -122,6 +122,7 @@ const DarkModeToggle = () => {
           textAlign: 'center',
           border: '1px solid rgba(255, 255, 255, 0.2)',
           fontWeight: '500',
+          pointerEvents: 'none', // Ensures tooltip doesn't interfere with hover state
         }}
       >
         {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}

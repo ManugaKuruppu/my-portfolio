@@ -1,58 +1,65 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
 import DarkModeSwitch from './DarkModeSwitch'; // Ensure the path is correct
 import socialLinks from '../links/socialLinks';
 
 const Navbar = () => {
+  const location = useLocation();
+  const [activeLink, setActiveLink] = useState('/home');
+  const [pendingLink, setPendingLink] = useState(null); // For handling animation smoothly
+
+  useEffect(() => {
+    if (!pendingLink) setActiveLink(location.pathname);
+  }, [location, pendingLink]);
+
+  const handleLinkClick = (to) => {
+    setPendingLink(to);
+    setTimeout(() => {
+      setActiveLink(to);
+      setPendingLink(null);
+    }, 300); // Match animation duration
+  };
+
+  const isActive = (to) => activeLink === to;
+
   return (
     <nav className="bg-[#f8f9fa] dark:bg-gray-900 shadow-md w-full">
       <div className="container mx-auto px-8 py-4 flex items-center justify-between">
         {/* Logo */}
-        <a
-          href="#home"
+        <Link
+          to="/"
+          onClick={() => handleLinkClick('/')}
           className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out"
         >
           Manuga<span className="text-blue-600 dark:text-yellow-400">Kuruppu</span>
-        </a>
+        </Link>
 
         {/* Navigation Links */}
         <ul className="flex space-x-10 text-lg font-medium items-center mr-9">
-          <li className="relative group">
-            <a
-              href="#home"
-              className="text-gray-700 dark:text-gray-300 relative hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out "
-            >
-              Home
-              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-600 dark:bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out rounded-full"></span>
-            </a>
-          </li>
-          <li className="relative group">
-            <a
-              href="#about"
-              className="text-gray-700 dark:text-gray-300 relative hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out"
-            >
-              About
-              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-600 dark:bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out rounded-full"></span>
-            </a>
-          </li>
-          <li className="relative group">
-            <a
-              href="#projects"
-              className="text-gray-700 dark:text-gray-300 relative hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out"
-            >
-              Projects
-              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-600 dark:bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out rounded-full"></span>
-            </a>
-          </li>
-          <li className="relative group">
-            <a
-              href="#contact"
-              className="text-gray-700 dark:text-gray-300 relative hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out"
-            >
-              Contact
-              <span className="absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-600 dark:bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-all duration-300 ease-in-out rounded-full"></span>
-            </a>
-          </li>
+          {[
+            { to: '/', label: 'Home' },
+            { to: '/about', label: 'About' },
+            { to: '/#projects', label: 'Projects' },
+            { to: '/#contact', label: 'Contact' },
+          ].map(({ to, label }) => (
+            <li key={to} className="relative group">
+              <Link
+                to={to}
+                onClick={() => handleLinkClick(to)}
+                className={`text-gray-700 dark:text-gray-300 relative hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out ${
+                  isActive(to) ? 'text-blue-600 dark:text-yellow-400' : ''
+                }`}
+              >
+                {label}
+                <span
+                  className={`absolute bottom-[-4px] left-0 w-full h-0.5 bg-blue-600 dark:bg-yellow-400 transform transition-all duration-300 ease-in-out rounded-full ${
+                    isActive(to) || pendingLink === to ? 'scale-x-100' : 'scale-x-0'
+                  }`}
+                ></span>
+              </Link>
+            </li>
+          ))}
         </ul>
 
         {/* Social Media Icons and Dark Mode Switch */}
