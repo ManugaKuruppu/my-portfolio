@@ -1,3 +1,5 @@
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaGitAlt, FaDocker } from 'react-icons/fa';
+ 
  export const projectsData = [
     {
       title: 'Snake Game',
@@ -34,12 +36,27 @@
 
 
 
-  export const skillsData = [
-    { skill: 'Web Development', description: 'Building responsive, dynamic, and visually appealing websites.' },
-    { skill: 'Agile Project Management', description: 'Excelling in teamwork and delivering projects efficiently.' },
-    { skill: 'Database Design', description: 'Designing and optimizing databases with MySQL and other tools.' },
-    { skill: 'React & Vue.js', description: 'Developing interactive and seamless user interfaces.' },
-    { skill: 'Backend Development', description: 'Crafting reliable and scalable backend systems.' },
-    { skill: 'Problem-Solving', description: 'Analyzing and resolving complex challenges with innovative solutions.' },
-  ];
+export const skillsData = [
+  {
+    skill: 'Web Development',
+    description: 'I have experience with front-end and back-end technologies, including React, HTML, CSS, and JavaScript.',
+    icons: [<FaReact />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
+  },
+  {
+    skill: 'Backend Development',
+    description: 'Skilled in Node.js, Express, and working with databases such as MySQL and MongoDB.',
+    icons: [<FaNodeJs />, <FaDatabase />],
+  },
+  {
+    skill: 'Version Control',
+    description: 'Proficient in using Git for version control and collaboration in team projects.',
+    icons: [<FaGitAlt />],
+  },
+  {
+    skill: 'Containerization',
+    description: 'Experience using Docker to containerize applications and manage environments.',
+    icons: [<FaDocker />],
+  },
+  // Add more skills here as needed
+];
   

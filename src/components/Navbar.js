@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { FaInstagram, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { FaInstagram, FaLinkedin, FaGithub, FaBars, FaTimes } from 'react-icons/fa';
 import DarkModeSwitch from './DarkModeSwitch'; // Ensure the path is correct
 import socialLinks from '../links/socialLinks';
 
@@ -8,6 +8,7 @@ const Navbar = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('/home');
   const [pendingLink, setPendingLink] = useState(null); // For handling animation smoothly
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Hamburger menu state
 
   useEffect(() => {
     if (!pendingLink) setActiveLink(location.pathname);
@@ -18,7 +19,8 @@ const Navbar = () => {
     setTimeout(() => {
       setActiveLink(to);
       setPendingLink(null);
-    }, 300); // Match animation duration
+      setIsMenuOpen(false); // Close the menu after clicking
+    }, 300);
   };
 
   const isActive = (to) => activeLink === to;
@@ -35,8 +37,16 @@ const Navbar = () => {
           Manuga<span className="text-blue-600 dark:text-yellow-400">Kuruppu</span>
         </Link>
 
-        {/* Navigation Links */}
-        <ul className="flex space-x-10 text-lg font-medium items-center mr-9">
+        {/* Hamburger Button */}
+        <button
+          className="lg:hidden text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300"
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+        >
+          {isMenuOpen ? <FaTimes size={28} /> : <FaBars size={28} />}
+        </button>
+
+        {/* Desktop Navigation Links */}
+        <ul className="hidden lg:flex space-x-10 text-lg font-medium items-center">
           {[
             { to: '/', label: 'Home' },
             { to: '/about', label: 'About' },
@@ -63,8 +73,7 @@ const Navbar = () => {
         </ul>
 
         {/* Social Media Icons and Dark Mode Switch */}
-        <div className="flex items-center space-x-6">
-          {/* Social Media Icons */}
+        <div className="hidden lg:flex items-center space-x-6">
           <a
             href={socialLinks.instagram}
             target="_blank"
@@ -89,11 +98,64 @@ const Navbar = () => {
           >
             <FaGithub size={24} />
           </a>
-
-          {/* Dark Mode Switch */}
           <DarkModeSwitch />
         </div>
       </div>
+
+      {/* Mobile Menu */}
+      {isMenuOpen && (
+        <div className="lg:hidden bg-[#f8f9fa] dark:bg-gray-900">
+          <ul className="flex flex-col items-center space-y-4 py-4">
+            {[
+              { to: '/', label: 'Home' },
+              { to: '/about', label: 'About' },
+              { to: '/#projects', label: 'Projects' },
+              { to: '/#contact', label: 'Contact' },
+            ].map(({ to, label }) => (
+              <li key={to} className="relative group">
+                <Link
+                  to={to}
+                  onClick={() => handleLinkClick(to)}
+                  className={`text-gray-700 dark:text-gray-300 text-lg font-medium hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out ${
+                    isActive(to) ? 'text-blue-600 dark:text-yellow-400' : ''
+                  }`}
+                >
+                  {label}
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          {/* Mobile Social Media Icons */}
+          <div className="flex justify-center space-x-6 py-4">
+            <a
+              href={socialLinks.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-400 transition-all duration-300 ease-in-out"
+            >
+              <FaInstagram size={24} />
+            </a>
+            <a
+              href={socialLinks.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-300 ease-in-out"
+            >
+              <FaLinkedin size={24} />
+            </a>
+            <a
+              href={socialLinks.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-all duration-300 ease-in-out"
+            >
+              <FaGithub size={24} />
+            </a>
+            <DarkModeSwitch />
+          </div>
+        </div>
+      )}
     </nav>
   );
 };
