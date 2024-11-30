@@ -21,30 +21,36 @@ const AboutPage = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-blue-600 via-indigo-700 to-purple-800 dark:from-gray-800 dark:via-gray-700 dark:to-gray-800 text-white text-center">
+        <section className="relative py-32 bg-gradient-to-br from-blue-700 via-indigo-800 to-purple-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white text-center">
           <div className="container mx-auto px-6 lg:px-20">
-            <h1 className="text-6xl md:text-7xl font-extrabold tracking-tight mb-6 animate-fade-in">
-              About <span className="text-yellow-400">Me</span>
+            {/* Title with better spacing and refined font */}
+            <h1 className="text-5xl md:text-6xl font-semibold tracking-tight mb-8 leading-tight">
+              Professional <span className="text-yellow-400">Overview</span>
             </h1>
-            <p className="text-xl md:text-2xl font-light max-w-4xl mx-auto leading-relaxed mb-8">
-              Discover my journey as a passionate software engineer and the milestones that have shaped my expertise.
+
+            {/* Subtitle with refined, calm text */}
+            <p className="text-xl md:text-2xl font-light text-gray-300 max-w-4xl mx-auto leading-relaxed mb-10">
+              A glance at my journey as a software engineer, my skills, and the experiences that drive my passion for creating impactful digital solutions.
             </p>
+
+            {/* Smooth action button with refined animation */}
             <button
               onClick={scrollToSkills} // Call scrollToSkills when the button is clicked
-              className="px-6 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-yellow-500 transition transform hover:-translate-y-1"
+              className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1"
             >
               Explore My Skills
             </button>
           </div>
-        </section>
 
+
+        </section>
         {/* About Content Section */}
         <section className="py-24 bg-gray-100 dark:bg-gray-800">
           <div className="container mx-auto px-6 lg:px-20">
             <div className="max-w-screen-lg mx-auto text-center"> {/* Adjusted to max-w-screen-lg for better width utilization */}
               <h2 className="text-4xl font-semibold text-center mb-12 text-indigo-600 dark:text-indigo-400">
-              Who am  <span className="text-blue-500">I?</span>
-            </h2>
+                Who am  <span className="text-blue-500">I?</span>
+              </h2>
 
               {/* Text Content */}
               <div className="max-w-none mx-auto"> {/* Set max-w-none to allow full width utilization */}
@@ -90,7 +96,7 @@ const AboutPage = () => {
                 {/* Projects Button */}
                 <div className="text-center">
                   <a
-                    href="#projects" // Link to your projects section
+                    href="projects" // Link to your projects section
                     className="inline-block px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-yellow-500 transition transform hover:-translate-y-1"
                   >
                     My Projects
