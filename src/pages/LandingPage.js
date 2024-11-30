@@ -26,7 +26,7 @@ const LandingPage = () => {
               style={{ fontFamily: "'Roboto', sans-serif" }}
             >
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-white to-white dark:from-yellow-200 dark:to-yellow-400">
-                Hello There!
+                Hello There
               </span>
             </h1>
             <p className="text-lg md:text-xl font-light max-w-3xl mx-auto mb-10">
