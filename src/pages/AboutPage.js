@@ -94,10 +94,10 @@ const AboutPage = () => {
                 </div>
 
                 {/* Projects Button */}
-                <div className="text-center">
+                <div className="text-center mt-11">
                   <a
                     href="projects" // Link to your projects section
-                    className="inline-block px-8 py-3 bg-yellow-400 text-gray-900 font-semibold rounded-lg shadow-lg hover:bg-yellow-500 transition transform hover:-translate-y-1"
+                    className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-transform transform hover:-translate-y-2 duration-300 ease-in-out"
                   >
                     My Projects
                   </a>
@@ -115,7 +115,7 @@ const AboutPage = () => {
         >
           <div className="container mx-auto px-6 lg:px-20">
             <h2 className="text-4xl font-bold text-center text-gray-800 dark:text-gray-200 mb-16">
-              My <span className="text-blue-500">Skills</span>
+              Professional <span className="text-blue-500">Skills</span>
             </h2>
             <div className="grid gap-12 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
               {skillsData.map((item, index) => (
