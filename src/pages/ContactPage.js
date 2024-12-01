@@ -1,22 +1,88 @@
 import React, { useState } from 'react';
+import emailjs from 'emailjs-com';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import socialLinks from '../links/socialLinks';
-import { FaInstagram, FaGithub, FaLinkedin } from 'react-icons/fa'; // Importing icons
-import { contactData } from '../data/data'; // Importing contact data
+import { FaInstagram, FaGithub, FaLinkedin, FaCheckCircle } from 'react-icons/fa';
+import { contactData } from '../data/data';
 
 const ContactPage = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: '',
+    });
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [successMessage, setSuccessMessage] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
 
-    // Destructure the first (and assumed only) contact object
-    const { email, phone } = contactData[0];
+    const { email: contactEmail, phone } = contactData[0];
+
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({
+            ...formData,
+            [name]: value,
+        });
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setIsSubmitting(true);
+        emailjs
+            .send(
+                'service_pczrn55',
+                'template_1fnlpyo',
+                {
+                    from_name: formData.name,
+                    from_email: formData.email,
+                    message: formData.message,
+                    to_name: contactEmail,
+                },
+                'dVizSXAxXtncTweyj'
+            )
+            .then(
+                () => {
+                    setIsSubmitting(false);
+                    setSuccessMessage('Your message has been sent successfully!');
+                    setErrorMessage('');
+                    setShowPopup(true);
+
+                    setFormData({ name: '', email: '', message: '' });
+
+                    // Hide popup after 3 seconds
+                    setTimeout(() => setShowPopup(false), 3000);
+                },
+                (error) => {
+                    setIsSubmitting(false);
+                    setErrorMessage('Something went wrong. Please try again later.');
+                    console.error('EmailJS error: ', error);
+                }
+            );
+    };
 
     return (
         <div className={`${darkMode ? 'dark' : ''} min-h-screen bg-gray-50 dark:bg-gray-900`}>
+            {/* Popup Message */}
+            {showPopup && (
+                <div
+                    className={`fixed top-4 left-1/2 transform -translate-x-1/2 z-50 transition-all duration-700 ease-in-out ${
+                        showPopup ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full'
+                    } bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 shadow-lg rounded-lg px-6 py-4 flex items-center space-x-4`}
+                >
+                    <FaCheckCircle className="text-green-500 text-2xl" />
+                    <span className="text-gray-800 dark:text-gray-200 text-lg font-semibold">
+                        {successMessage}
+                    </span>
+                </div>
+            )}
+
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
             <main className="flex-grow">
@@ -41,13 +107,16 @@ const ContactPage = () => {
                                 <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-6">
                                     Send a Message
                                 </h2>
-                                <form>
+                                <form onSubmit={handleSubmit}>
                                     <div className="mb-6">
                                         <label className="block text-gray-700 dark:text-gray-300 text-sm font-medium mb-2">
                                             Full Name
                                         </label>
                                         <input
                                             type="text"
+                                            name="name"
+                                            value={formData.name}
+                                            onChange={handleInputChange}
                                             placeholder="Your Name"
                                             className="w-full px-4 py-3 rounded-lg shadow-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
@@ -58,6 +127,9 @@ const ContactPage = () => {
                                         </label>
                                         <input
                                             type="email"
+                                            name="email"
+                                            value={formData.email}
+                                            onChange={handleInputChange}
                                             placeholder="Your Email"
                                             className="w-full px-4 py-3 rounded-lg shadow-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                                         />
@@ -67,6 +139,9 @@ const ContactPage = () => {
                                             Message
                                         </label>
                                         <textarea
+                                            name="message"
+                                            value={formData.message}
+                                            onChange={handleInputChange}
                                             placeholder="Your Message"
                                             rows="6"
                                             className="w-full px-4 py-3 rounded-lg shadow-sm text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -75,10 +150,14 @@ const ContactPage = () => {
                                     <button
                                         type="submit"
                                         className="w-full py-3 px-6 bg-indigo-600 hover:bg-indigo-700 text-white font-semibold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                                        disabled={isSubmitting}
                                     >
-                                        Send Message
+                                        {isSubmitting ? 'Sending...' : 'Send Message'}
                                     </button>
                                 </form>
+                                {errorMessage && (
+                                    <p className="text-red-500 mt-4">{errorMessage}</p>
+                                )}
                             </div>
 
                             {/* Contact Details */}
@@ -91,10 +170,10 @@ const ContactPage = () => {
                                         <p className="text-gray-700 dark:text-gray-300">
                                             <span className="font-semibold">Email:</span>{' '}
                                             <a
-                                                href={`mailto:${email}`}
+                                                href={`mailto:${contactEmail}`}
                                                 className="text-blue-500 hover:underline"
                                             >
-                                                {email}
+                                                {contactEmail}
                                             </a>
                                         </p>
                                     </li>
@@ -112,7 +191,7 @@ const ContactPage = () => {
                                 </ul>
                                 <div className="mt-12">
                                     <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
-                                        Follow Us
+                                        Follow Me
                                     </h3>
                                     <div className="flex space-x-6">
                                         <a
