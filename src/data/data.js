@@ -106,4 +106,11 @@ export const skillsData = [
   },
   // Add more skills here as needed
 ];
+
+export const contactData = [
+  {
+    email: 'manugakuruppu@gmail.com',
+    phone: '+94 76 454 2266',
+  }
+];
   

@@ -29,33 +29,29 @@ const ProjectsPage = () => {
                 </section>
 
                 {/* Project Cards Section */}
-                <section className="py-24 bg-gray-100 dark:bg-gray-800">
+                <section className="py-24 bg-gray-100 dark:bg-gray-900">
                     <div className="container mx-auto px-6 lg:px-20">
                         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
                             {projectsData.map((project, index) => (
                                 <div
                                     key={index}
-                                    className={`group bg-white dark:bg-gray-900 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-3 relative overflow-hidden ${index === 6
+                                    className={`group bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-3 relative overflow-hidden border-2 border-transparent hover:border-gradient-to-br hover:from-blue-500 hover:to-purple-500 ${index === 6
                                         ? 'mx-auto w-full sm:w-2/3 lg:w-1/2 col-span-full'
                                         : ''
                                         }`}
                                 >
                                     <div className="p-8">
-                                        {/* Project Title */}
-                                        <h3 className={`text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 group-hover:transition duration-300 
-    group-hover:text-transparent group-hover:bg-clip-text 
-    group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-indigo-700 group-hover:to-purple-800 
-    dark:group-hover:text-yellow-400`} // In dark mode, hover text will be yellow, otherwise gradient
+                                        <h3
+                                            className={`text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 group-hover:transition duration-300 
+                                                group-hover:text-transparent group-hover:bg-clip-text 
+                                                group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-indigo-700 group-hover:to-purple-800 
+                                                dark:group-hover:text-yellow-400`}
                                         >
                                             {project.title}
                                         </h3>
-
-                                        {/* Description */}
                                         <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
                                             {project.description}
                                         </p>
-
-                                        {/* Technologies Used */}
                                         <div className="mb-6">
                                             <div className="flex flex-wrap gap-3">
                                                 {project.languages.map((language, idx) => (
@@ -68,8 +64,6 @@ const ProjectsPage = () => {
                                                 ))}
                                             </div>
                                         </div>
-
-                                        {/* Logos */}
                                         <div className="mb-6">
                                             <div className="flex gap-4">
                                                 {project.logos.map((logo, idx) => (
@@ -82,8 +76,6 @@ const ProjectsPage = () => {
                                                 ))}
                                             </div>
                                         </div>
-
-                                        {/* Repository Link */}
                                         <a
                                             href={project.repoLink || '#'}
                                             target={project.repoLink ? '_blank' : '_self'}

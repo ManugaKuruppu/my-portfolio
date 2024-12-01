@@ -51,7 +51,7 @@ const Navbar = () => {
             { to: '/', label: 'Home' },
             { to: '/about', label: 'About' },
             { to: '/projects', label: 'Projects' },
-            { to: '/#contact', label: 'Contact' },
+            { to: '/contact', label: 'Contact' },
           ].map(({ to, label }) => (
             <li key={to} className="relative group">
               <Link
@@ -110,7 +110,7 @@ const Navbar = () => {
               { to: '/', label: 'Home' },
               { to: '/about', label: 'About' },
               { to: '/projects', label: 'Projects' },
-              { to: '/#contact', label: 'Contact' },
+              { to: '/contact', label: 'Contact' },
             ].map(({ to, label }) => (
               <li key={to} className="relative group">
                 <Link

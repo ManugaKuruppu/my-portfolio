@@ -124,12 +124,14 @@ const LandingPage = () => {
               <p className="text-lg font-light mb-6 text-gray-700 dark:text-gray-300">
                 Feel free to reach out for collaborations, inquiries, or just to say hello. I’d love to hear from you!
               </p>
-              <a
-                href="mailto:your-email@example.com"
-                className="inline-block px-8 py-4 bg-blue-500 text-white font-semibold rounded-lg shadow-lg hover:bg-blue-600 hover:shadow-xl transform transition-all duration-300"
-              >
-                Contact Me
-              </a>
+              <div className="text-center mt-11">
+                  <a
+                    href="contact" // Link to your projects section
+                    className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-transform transform hover:-translate-y-2 duration-300 ease-in-out"
+                  >
+                    Contact Me!
+                  </a>
+                </div>
             </div>
           </div>
         </section>
