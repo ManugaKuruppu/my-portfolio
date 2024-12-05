@@ -69,7 +69,7 @@ const LandingPage = () => {
               {projectsData.slice(0, 3).map((project, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-2"
+                  className="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-2 flex flex-col justify-between h-full"
                 >
                   <h3
                     className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-yellow-400 dark:to-yellow-200"
@@ -77,8 +77,10 @@ const LandingPage = () => {
                     {project.title}
                   </h3>
                   <p className="text-base text-gray-600 dark:text-gray-400 mb-6">
-                    {project.description}
+                    {project.note}
                   </p>
+
+                  {/* Tags Section */}
                   <div className="flex flex-wrap gap-2 mb-4">
                     {project.languages.map((lang, langIndex) => (
                       <span
@@ -89,6 +91,8 @@ const LandingPage = () => {
                       </span>
                     ))}
                   </div>
+
+                  {/* Logos Section */}
                   <div className="flex flex-wrap gap-3 mb-4">
                     {project.logos.map((logo, logoIndex) => (
                       <img
@@ -99,11 +103,13 @@ const LandingPage = () => {
                       />
                     ))}
                   </div>
+
+                  {/* View Repository Button */}
                   <a
                     href={project.repoLink}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="block mt-4 px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform"
+                    className="block mt-auto px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform"
                   >
                     View Repository
                   </a>
@@ -112,6 +118,7 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+
 
 
 
@@ -128,11 +135,11 @@ const LandingPage = () => {
                 Feel free to reach out for collaborations, inquiries, or just to say hello. I’d love to hear from you!
               </p>
               <div className="text-center mt-11">
-              <a href="contact">
-              <button className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1">
-                Contact Me!
-              </button>
-            </a>
+                <a href="contact">
+                  <button className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1">
+                    Contact Me!
+                  </button>
+                </a>
               </div>
             </div>
           </div>
