@@ -43,14 +43,15 @@ const LandingPage = () => {
         </section>
 
         {/* About Section */}
-        <section id="about" className="py-20 bg-gray-100 dark:bg-gray-800">
+        <section id="about" className="py-16 bg-gray-100 dark:bg-gray-800">
           <div className="container mx-auto">
             <h2 className="text-4xl font-semibold text-center mb-12 text-indigo-600 dark:text-indigo-400">
               Me in a <span className="text-blue-500">Nutshell!</span>
             </h2>
             <div className="max-w-4xl mx-auto text-center">
               <p className="text-lg font-light leading-relaxed text-gray-700 dark:text-gray-300 mb-6">
-                I’m a passionate software developer with expertise in crafting beautiful, functional, and user-friendly web applications. I thrive on solving challenging problems and creating meaningful digital experiences.
+              Hi, I’m Manuga Kuruppu!
+              I’m a passionate software engineering undergraduate with a knack for building creative and efficient solutions. With expertise in Agile Project Management, PHP, Java, and Web Development, I thrive on crafting innovative projects. My journey is fueled by a love for learning and a drive to solve real-world problems through technology.
               </p>
               <p className="text-md font-medium text-gray-600 dark:text-gray-400">
                 Technology is my tool to transform ideas into reality. I’m always eager to learn, grow, and collaborate on exciting projects.
@@ -69,7 +70,7 @@ const LandingPage = () => {
               {projectsData.slice(0, 3).map((project, index) => (
                 <div
                   key={index}
-                  className="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-2 flex flex-col justify-between h-full"
+                  className="p-6 bg-white dark:bg-gray-900 rounded-lg border border-gray-200 dark:border-gray-700 shadow-md hover:shadow-lg transition-transform transform hover:-translate-y-2 flex flex-col h-full"
                 >
                   <h3
                     className="text-2xl font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-400 dark:from-yellow-400 dark:to-yellow-200"
@@ -80,39 +81,41 @@ const LandingPage = () => {
                     {project.note}
                   </p>
 
-                  {/* Tags Section */}
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.languages.map((lang, langIndex) => (
-                      <span
-                        key={langIndex}
-                        className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 text-sm font-medium rounded"
-                      >
-                        {lang}
-                      </span>
-                    ))}
-                  </div>
+                  <div className="mt-auto">
+                    {/* Tags Section */}
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.languages.map((lang, langIndex) => (
+                        <span
+                          key={langIndex}
+                          className="px-3 py-1 bg-blue-100 text-blue-700 dark:bg-blue-800 dark:text-blue-200 text-sm font-medium rounded"
+                        >
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
 
-                  {/* Logos Section */}
-                  <div className="flex flex-wrap gap-3 mb-4">
-                    {project.logos.map((logo, logoIndex) => (
-                      <img
-                        key={logoIndex}
-                        src={logo}
-                        alt={`${project.languages[logoIndex]} logo`}
-                        className="h-8 w-8 object-contain"
-                      />
-                    ))}
-                  </div>
+                    {/* Logos Section */}
+                    <div className="flex flex-wrap gap-3 mb-4">
+                      {project.logos.map((logo, logoIndex) => (
+                        <img
+                          key={logoIndex}
+                          src={logo}
+                          alt={`${project.languages[logoIndex]} logo`}
+                          className="h-8 w-8 object-contain"
+                        />
+                      ))}
+                    </div>
 
-                  {/* View Repository Button */}
-                  <a
-                    href={project.repoLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block mt-auto px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform"
-                  >
-                    View Repository
-                  </a>
+                    {/* View Repository Button */}
+                    <a
+                      href={project.repoLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block px-6 py-2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-sm font-medium rounded-lg shadow-lg hover:shadow-xl hover:scale-105 transform transition-transform"
+                    >
+                      View Repository
+                    </a>
+                  </div>
                 </div>
               ))}
             </div>

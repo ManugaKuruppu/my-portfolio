@@ -1,4 +1,4 @@
-import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaGitAlt, FaDocker } from 'react-icons/fa';
+import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaGitAlt, FaDocker, FaVuejs, FaLaravel, FaPhp, FaServer, FaGithub } from 'react-icons/fa';
  
  export const projectsData = [
     {
@@ -18,28 +18,32 @@ import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaGitAlt, FaDo
       title: 'University Student Blog',
       description: 'This project was a collaborative effort among a team of three developers, including myself. We developed a comprehensive blog system designed for university students to interact and stay updated on university-related matters.The system was built using Laravel as the primary backend framework, leveraging JavaScript, HTML, and CSS for the frontend. For data storage and management, we utilized MySQL as the database system. This project emphasized teamwork, efficient communication, and the integration of modern web development technologies to create a functional and user-friendly platform.',
       note: 'This project, developed by three team members, is a blog system for university students, built with Laravel, JavaScript, HTML, CSS, and MySQL, focusing on teamwork and user-friendly design.',          
-      languages: ['Python', 'Django', 'HTML'],
+      languages: ['JavaScript', 'CSS', 'HTML', 'Laravel', 'MySQL', 'PHP'],
       logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg'
+,
       ],
-      repoLink: 'https://github.com/ManugaKuruppu/University-Student-Blog.git'
+      repoLink: 'https://github.com/ManugaKuruppu/University-Student-Blog'
     },
     {
       title: 'TechWorld E-Commerce Website',
       description: 'Tech World is a sophisticated eCommerce platform designed for a computer shop, offering customers an easy-to-navigate shopping experience with real-time product availability, secure payment options, and detailed product information, while providing management with powerful inventory and order management tools, customer profiles, and advanced reporting features to streamline operations and enhance business growth. It was built using Laravel for the backend, JavaScript for dynamic functionality, and HTML and CSS for the frontend design.',
       note: 'Tech World is an eCommerce platform for a computer shop, built with Laravel, JavaScript, HTML, and CSS, offering seamless shopping and inventory management.',
-      languages: ['Java', 'Spring', 'MySQL'],
+      languages: ['JavaScript', 'CSS', 'HTML', 'Laravel', 'MySQL', 'PHP'],
       logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg'
       ],
-      repoLink: 'https://github.com/ManugaKuruppu/Snake-_Game'
+      repoLink: 'https://github.com/ManugaKuruppu/TechWorld'
     },
     {
-      title: 'Project 3',
-      description: 'A creative project demonstrating exceptional design and coding.',
+      title: 'Traveller',
+      description: 'Traveller is a ',
       languages: ['Java', 'Spring', 'MySQL'],
       logos: [
         'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
@@ -93,21 +97,30 @@ export const skillsData = [
     icons: [<FaReact />, <FaHtml5 />, <FaCss3Alt />, <FaJs />],
   },
   {
-    skill: 'Backend Development',
-    description: 'Skilled in Node.js, Express, and working with databases such as MySQL and MongoDB.',
-    icons: [<FaNodeJs />, <FaDatabase />],
+    skill: 'Front-End Development',
+    description: 'Proficient in React.js, Vue.js, JavaScript, HTML, and modern CSS frameworks like Tailwind CSS. Experienced in creating responsive and dynamic user interfaces.',
+    icons: [<FaReact />, <FaVuejs />, <FaJs />, <FaHtml5 />, <FaCss3Alt />], 
   },
+  
+  {
+    skill: 'Back-End Development',
+    description: 'Skilled in developing secure and scalable back-end systems using Laravel, PHP, Node.js  and NestJS. Experienced in working with databases like MySQL and MongoDB.',
+    icons: [<FaNodeJs />, <FaDatabase />, <FaLaravel />, <FaPhp />, <FaServer />], 
+  },
+  
+
   {
     skill: 'Version Control',
-    description: 'Proficient in using Git for version control and collaboration in team projects.',
-    icons: [<FaGitAlt />],
+    description: 'Extensive experience with Git for version control, managing codebases, and collaborating on projects in team environments. Skilled in leveraging GitHub for repository management, issue tracking, and open-source contributions.',
+    icons: [<FaGitAlt />, <FaGithub />],
   },
+  
   {
     skill: 'Containerization',
     description: 'Experience using Docker to containerize applications and manage environments.',
     icons: [<FaDocker />],
   },
-  // Add more skills here as needed
+  
 ];
 
 export const contactData = [

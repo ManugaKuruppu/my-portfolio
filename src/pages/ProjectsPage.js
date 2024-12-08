@@ -40,60 +40,65 @@ const ProjectsPage = () => {
                                         : ''
                                         }`}
                                 >
-                                    <div className="p-8">
-                                        <h3
-                                            className={`text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 group-hover:transition duration-300 
-                                                group-hover:text-transparent group-hover:bg-clip-text 
-                                                group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-indigo-700 group-hover:to-purple-800 
-                                                dark:group-hover:text-yellow-400`}
-                                        >
-                                            {project.title}
-                                        </h3>
-                                        <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
-                                            {project.description}
-                                        </p>
-                                        <div className="mb-6">
-                                            <div className="flex flex-wrap gap-3">
-                                                {project.languages.map((language, idx) => (
-                                                    <span
-                                                        key={idx}
-                                                        className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
-                                                    >
-                                                        {language}
-                                                    </span>
-                                                ))}
-                                            </div>
+                                    <div className="p-8 flex flex-col h-full">
+                                        <div className="flex-grow">
+                                            <h3
+                                                className={`text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 group-hover:transition duration-300 
+                                    group-hover:text-transparent group-hover:bg-clip-text 
+                                    group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-indigo-700 group-hover:to-purple-800 
+                                    dark:group-hover:text-yellow-400`}
+                                            >
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                                                {project.description}
+                                            </p>
                                         </div>
-                                        <div className="mb-6">
-                                            <div className="flex gap-4">
-                                                {project.logos.map((logo, idx) => (
-                                                    <img
-                                                        key={idx}
-                                                        src={logo}
-                                                        alt="Technology Logo"
-                                                        className="h-10 w-10 object-contain rounded-md shadow-md hover:shadow-lg transition-all duration-300"
-                                                    />
-                                                ))}
+                                        <div className="mt-auto">
+                                            <div className="mb-6">
+                                                <div className="flex flex-wrap gap-3">
+                                                    {project.languages.map((language, idx) => (
+                                                        <span
+                                                            key={idx}
+                                                            className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
+                                                        >
+                                                            {language}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
+                                            <div className="mb-6">
+                                                <div className="flex gap-4">
+                                                    {project.logos.map((logo, idx) => (
+                                                        <img
+                                                            key={idx}
+                                                            src={logo}
+                                                            alt="Technology Logo"
+                                                            className="h-10 w-10 object-contain rounded-md shadow-md hover:shadow-lg transition-all duration-300"
+                                                        />
+                                                    ))}
+                                                </div>
+                                            </div>
+                                            <a
+                                                href={project.repoLink || '#'}
+                                                target={project.repoLink ? '_blank' : '_self'}
+                                                rel={project.repoLink ? 'noopener noreferrer' : ''}
+                                                className={`inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg transition-all ${project.repoLink
+                                                    ? 'text-white bg-blue-600 hover:bg-blue-700'
+                                                    : 'text-gray-400 bg-gray-200 cursor-not-allowed'
+                                                    }`}
+                                                disabled={!project.repoLink}
+                                            >
+                                                <FaGithub className="inline mr-2" /> View Repository
+                                            </a>
                                         </div>
-                                        <a
-                                            href={project.repoLink || '#'}
-                                            target={project.repoLink ? '_blank' : '_self'}
-                                            rel={project.repoLink ? 'noopener noreferrer' : ''}
-                                            className={`inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg transition-all ${project.repoLink
-                                                ? 'text-white bg-blue-600 hover:bg-blue-700'
-                                                : 'text-gray-400 bg-gray-200 cursor-not-allowed'
-                                                }`}
-                                            disabled={!project.repoLink}
-                                        >
-                                            <FaGithub className="inline mr-2" /> View Repository
-                                        </a>
                                     </div>
                                 </div>
                             ))}
                         </div>
                     </div>
                 </section>
+
             </main>
 
             <Footer />
