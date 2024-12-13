@@ -35,7 +35,7 @@ const ProjectsPage = () => {
                             {projectsData.map((project, index) => (
                                 <div
                                     key={index}
-                                    className={`group bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-3 relative overflow-hidden border-2 border-transparent hover:border-gradient-to-br hover:from-blue-500 hover:to-purple-500 ${index === 6
+                                    className={`group bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-3 relative overflow-hidden border-2 border-transparent hover:border-gradient-to-br  ${index === 6
                                         ? 'mx-auto w-full sm:w-2/3 lg:w-1/2 col-span-full'
                                         : ''
                                         }`}

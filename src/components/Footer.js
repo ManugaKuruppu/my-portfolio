@@ -72,18 +72,7 @@ const Footer = () => {
                 {/* Bottom Section */}
                 <div className="text-center text-gray-500">
                     <p>
-                        &copy; {new Date().getFullYear()} My Portfolio. All rights reserved.
-                    </p>
-                    <p>
-                        Made with ❤️ by{' '}
-                        <a
-                            href="https://yourwebsite.com"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-500 dark:text-yellow-500 hover:underline"
-                        >
-                            Manuga Kuruppu
-                        </a>
+                        &copy;  Manuga Kuruppu. All rights reserved.
                     </p>
                 </div>
             </div>

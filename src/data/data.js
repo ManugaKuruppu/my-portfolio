@@ -43,48 +43,38 @@ import { FaReact, FaHtml5, FaCss3Alt, FaJs, FaNodeJs, FaDatabase, FaGitAlt, FaDo
     },
     {
       title: 'Traveller',
-      description: 'Traveller is a ',
-      languages: ['Java', 'Spring', 'MySQL'],
+      description:  'Traveller is a feature-rich Android application developed using Flutter and Android Studio, designed to enhance the travel experience for tourists in Sri Lanka by offering comprehensive destination guides, user reviews, and insights, along with a seamless platform for exploring, planning, and booking tickets to the country’s top attractions.',
+      languages: ['Dart', 'Flutter', ],
       logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+            'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg',
       ],
-      repoLink: 'https://github.com/ManugaKuruppu/Snake-_Game'
+      repoLink: 'https://github.com/ManugaKuruppu/traveller.git'
     },
     {
-      title: 'Project 3',
-      description: 'A creative project demonstrating exceptional design and coding.',
-      languages: ['Java', 'Spring', 'MySQL'],
+      title: 'Foody',
+      description: 'Foody is a cutting-edge Android application developed using Flutter and Dart, designed to provide a seamless food delivery experience for domestic customers, featuring Firebase integration for secure user management, restaurant handling, real-time order tracking, personalized recommendations, and an intuitive, scalable design that enhances convenience for both customers and restaurant owners.',
+      languages: ['Dart', 'Flutter', 'Firebase'],
       logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg',
+
       ],
-      repoLink: 'https://github.com/ManugaKuruppu/Snake-_Game'
+      repoLink: 'https://github.com/ManugaKuruppu/Foody.git'
     },
     {
-      title: 'Project 3',
-      description: 'A creative project demonstrating exceptional design and coding.',
-      languages: ['Java', 'Spring', 'MySQL'],
+      title: 'Turtle Hatchery',
+      description: 'Turtle Hatchery is a comprehensive ticket booking website tailored for turtle hatcheries in Sri Lanka. Developed using JavaScript, HTML, and CSS, this platform not only facilitates seamless ticket reservations for visitors but also serves as an educational portal. Users can explore detailed information about various sea turtle species, their unique characteristics, and conservation efforts. Designed with user experience in mind, the website blends functionality with informative content, promoting both eco-tourism and awareness of marine wildlife.',
+      languages: ['JavaScript', 'HTML', 'CSS'],
       logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg',
+        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg',
       ],
-      repoLink: 'https://github.com/ManugaKuruppu/Snake-_Game'
+      repoLink: 'https://github.com/ManugaKuruppu/Turtle-Hatchery-.git'
     },
-    {
-      title: 'Project 3',
-      description: 'A creative project demonstrating exceptional design and coding.',
-      languages: ['Java', 'Spring', 'MySQL'],
-      logos: [
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg',
-        'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg',
-      ],
-      repoLink: 'https://github.com/ManugaKuruppu/Snake-_Game'
-    },
+    
   ];
   
 
