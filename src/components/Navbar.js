@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { FaInstagram, FaLinkedin, FaGithub, FaBars, FaTimes } from 'react-icons/fa';
-import DarkModeSwitch from './DarkModeSwitch'; // Ensure the path is correct
+import DarkModeSwitch from './DarkModeSwitch'; 
 import socialLinks from '../links/socialLinks';
 
 const Navbar = () => {
   const location = useLocation();
   const [activeLink, setActiveLink] = useState('/home');
-  const [pendingLink, setPendingLink] = useState(null); // For handling animation smoothly
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Hamburger menu state
+  const [pendingLink, setPendingLink] = useState(null); 
+  const [isMenuOpen, setIsMenuOpen] = useState(false); 
 
   useEffect(() => {
     if (!pendingLink) setActiveLink(location.pathname);
@@ -19,7 +19,7 @@ const Navbar = () => {
     setTimeout(() => {
       setActiveLink(to);
       setPendingLink(null);
-      setIsMenuOpen(false); // Close the menu after clicking
+      setIsMenuOpen(false); 
     }, 300);
   };
 

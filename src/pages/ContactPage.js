@@ -56,7 +56,7 @@ const ContactPage = () => {
 
                     setFormData({ name: '', email: '', message: '' });
 
-                    // Hide popup after 3 seconds
+                   
                     setTimeout(() => setShowPopup(false), 3000);
                 },
                 (error) => {
@@ -93,7 +93,7 @@ const ContactPage = () => {
                             Get in <span className="text-yellow-400">Touch</span>
                         </h1>
                         <p className="text-xl md:text-2xl font-light text-gray-200 max-w-4xl mx-auto">
-                            Whether you have a question, a project in mind, or just want to connect, feel free to reach out. We're here to help!
+                            Whether you have a question, a project in mind, or just want to connect, feel free to reach out to me!
                         </p>
                     </div>
                 </section>

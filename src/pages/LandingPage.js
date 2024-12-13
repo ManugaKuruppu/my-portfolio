@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import { projectsData } from '../data/data'; // Import the projects data
+import { projectsData } from '../data/data'; 
 
 const LandingPage = () => {
   const [showText, setShowText] = useState(false);
