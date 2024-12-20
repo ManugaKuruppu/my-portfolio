@@ -32,7 +32,7 @@ const LandingPage = () => {
             <p className="text-lg md:text-xl font-light max-w-3xl mx-auto mb-10">
               Explore my work, learn more about me, and let’s build something extraordinary together!
             </p>
-            <a href="/my-portfolio/about">
+            <a href="/about">
               <button className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1">
                 Get To Know Me!
               </button>
@@ -138,7 +138,7 @@ const LandingPage = () => {
                 Feel free to reach out for collaborations, inquiries, or just to say hello. I’d love to hear from you!
               </p>
               <div className="text-center mt-11">
-                <a href="/my-portfolio/contact">
+                <a href="/contact">
                   <button className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1">
                     Contact Me!
                   </button>
