@@ -64,6 +64,7 @@ const DarkModeToggle = () => {
           </div>
         )}
 
+
         {/* Clouds (only in light mode) */}
         {!isDarkMode && (
           <div
