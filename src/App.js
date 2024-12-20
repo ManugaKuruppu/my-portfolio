@@ -5,18 +5,17 @@ import AboutPage from './pages/AboutPage';
 import ProjectsPage from './pages/ProjectsPage';
 import ContactPage from './pages/ContactPage';
 
+
+
+
 const App = () => {
   return (
-    <Router basename="/my-portfolio">
+    <Router>
       <Routes>
-        {/* Routes relative to the basename */}
         <Route path="/" element={<LandingPage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/contact" element={<ContactPage />} />
-
-        {/* Fallback Route for unmatched paths */}
-        <Route path="*" element={<LandingPage />} />
       </Routes>
     </Router>
   );
