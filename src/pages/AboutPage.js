@@ -95,7 +95,7 @@ const AboutPage = () => {
 
                 {/* Projects Button */}
                 <div className="text-center mt-11">
-                <a href="/about/projects">
+                <a href="/projects">
               <button className="px-8 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all ease-in-out duration-300 transform hover:-translate-y-1">
                 My Projects
               </button>
