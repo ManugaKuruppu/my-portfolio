@@ -48,7 +48,7 @@ const Navbar = () => {
         {/* Desktop Navigation Links */}
         <ul className="hidden lg:flex space-x-10 text-lg font-medium items-center">
           {[
-            { to: '/', label: 'Home' },
+            { to: '/my-portfolio', label: 'Home' },
             { to: '/about', label: 'About' },
             { to: '/projects', label: 'Projects' },
             { to: '/contact', label: 'Contact' },
