@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="container mx-auto px-8 py-4 flex items-center justify-between">
         {/* Logo */}
         <Link
-          to="/"
+          to="/my-portfolio"
           onClick={() => handleLinkClick('/')}
           className="text-3xl font-bold text-gray-900 dark:text-white tracking-tight hover:text-blue-600 dark:hover:text-yellow-400 transition-all duration-300 ease-in-out"
         >
@@ -107,7 +107,7 @@ const Navbar = () => {
         <div className="lg:hidden bg-[#f8f9fa] dark:bg-gray-900">
           <ul className="flex flex-col items-center space-y-4 py-4">
             {[
-              { to: '/', label: 'Home' },
+              { to: '/my-portfolio', label: 'Home' },
               { to: '/about', label: 'About' },
               { to: '/projects', label: 'Projects' },
               { to: '/contact', label: 'Contact' },
