@@ -107,7 +107,7 @@ const Navbar = () => {
         <div className="lg:hidden bg-[#f8f9fa] dark:bg-gray-900">
           <ul className="flex flex-col items-center space-y-4 py-4">
             {[
-              { to: '/my-portfolio', label: 'Home' },
+              { to: '/', label: 'Home' },
               { to: '/about', label: 'About' },
               { to: '/projects', label: 'Projects' },
               { to: '/contact', label: 'Contact' },
