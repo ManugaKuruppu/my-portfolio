@@ -120,6 +120,7 @@ const Navbar = () => {
                     isActive(to) ? 'text-blue-600 dark:text-yellow-400' : ''
                   }`}
                 >
+                  
                   {label}
                 </Link>
               </li>
