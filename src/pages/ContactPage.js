@@ -103,7 +103,7 @@ const ContactPage = () => {
                     <div className="container mx-auto px-6 lg:px-20">
                         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
                             {/* Contact Form */}
-                            <div className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8 lg:p-12">
+                            <div className="bg-white/90 dark:bg-gray-900/90 rounded-2xl shadow-lg p-8 lg:p-12 backdrop-blur-md transition-all hover:shadow-2xl">
                                 <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-6">
                                     Send a Message
                                 </h2>
@@ -159,9 +159,8 @@ const ContactPage = () => {
                                     <p className="text-red-500 mt-4">{errorMessage}</p>
                                 )}
                             </div>
-
                             {/* Contact Details */}
-                            <div className="flex flex-col justify-center p-8 lg:p-12">
+                            <div className="flex flex-col justify-center p-8 lg:p-12 bg-white/80 dark:bg-gray-900/80 rounded-2xl shadow-lg backdrop-blur-md">
                                 <h2 className="text-3xl font-semibold text-gray-800 dark:text-gray-100 mb-6">
                                     Contact Information
                                 </h2>
@@ -222,6 +221,20 @@ const ContactPage = () => {
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </section>
+                {/* Call to Action Section */}
+                <section className="py-20 bg-gradient-to-r from-indigo-100 to-purple-100 dark:from-gray-900 dark:to-gray-800">
+                    <div className="container mx-auto text-center">
+                        <h2 className="text-4xl font-bold text-indigo-700 dark:text-indigo-300 mb-6">Let’s Connect!</h2>
+                        <p className="text-lg text-gray-700 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+                            I’m always happy to chat about new opportunities, collaborations, or anything tech. Drop me a message and let’s build something great together!
+                        </p>
+                        <a href="mailto:your@email.com">
+                            <button className="px-10 py-4 bg-yellow-400 text-gray-900 font-semibold rounded-full shadow-lg hover:bg-yellow-500 transition-all duration-300 transform hover:-translate-y-1">
+                                Email Me
+                            </button>
+                        </a>
                     </div>
                 </section>
             </main>
