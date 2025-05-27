@@ -1,6 +1,3 @@
-
-
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,6 +50,36 @@ body.dark-mode {
   }
   
 }
+
+.perspective {
+  perspective: 1200px;
+}
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+.backface-hidden {
+  backface-visibility: hidden;
+}
+.card-fade-in {
+  animation: cardFadeIn 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+}
+@keyframes cardFadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.96);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+.card-front {
+  /* For future custom front-side animation or style */
+}
+.card-back {
+  /* For future custom back-side animation or style */
+}
+
 
 
 

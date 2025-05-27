@@ -6,15 +6,23 @@ import { projectsData } from '../data/data';
 
 const ProjectsPage = () => {
     const [darkMode, setDarkMode] = useState(false);
+    const [flippedIndexes, setFlippedIndexes] = useState([]); // Track multiple flipped cards
 
     const toggleDarkMode = () => {
         setDarkMode(!darkMode);
     };
 
+    const handleFlip = (index) => {
+        setFlippedIndexes((prev) => prev.includes(index) ? prev : [...prev, index]);
+    };
+
+    const handleUnflip = (index) => {
+        setFlippedIndexes((prev) => prev.filter(i => i !== index));
+    };
+
     return (
         <div className={`${darkMode ? 'dark' : ''} min-h-screen bg-gray-50 dark:bg-gray-900`}>
             <Navbar darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
-
             <main className="flex-grow">
                 {/* Hero Section */}
                 <section className="py-32 bg-gradient-to-br from-blue-700 via-indigo-800 to-purple-900 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 text-white text-center">
@@ -35,62 +43,74 @@ const ProjectsPage = () => {
                             {projectsData.map((project, index) => (
                                 <div
                                     key={index}
-                                    className={`group bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl shadow-lg hover:shadow-2xl transition-all transform hover:-translate-y-3 relative overflow-hidden border-2 border-transparent hover:border-gradient-to-br  ${index === 6
-                                        ? 'mx-auto w-full sm:w-2/3 lg:w-1/2 col-span-full'
-                                        : ''
-                                        }`}
+                                    className={`perspective group rounded-3xl shadow-lg hover:shadow-2xl transition-all transform relative overflow-visible border-2 border-transparent ${index === 6 ? 'mx-auto w-full sm:w-2/3 lg:w-1/2 col-span-full' : ''} ${flippedIndexes.includes(index) ? 'z-30' : ''}`}
+                                    style={{ perspective: '1200px' }}
                                 >
-                                    <div className="p-8 flex flex-col h-full">
-                                        <div className="flex-grow">
-                                            <h3
-                                                className={`text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4 group-hover:transition duration-300 
-                                    group-hover:text-transparent group-hover:bg-clip-text 
-                                    group-hover:bg-gradient-to-br group-hover:from-blue-600 group-hover:via-indigo-700 group-hover:to-purple-800 
-                                    dark:group-hover:text-yellow-400`}
-                                            >
+                                    <div
+                                        className={`relative w-full h-[420px] transition-transform duration-700 ${flippedIndexes.includes(index) ? 'rotate-y-180' : ''} card-fade-in`}
+                                        style={{ transformStyle: 'preserve-3d' }}
+                                    >
+                                        {/* Front Side */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 flex flex-col h-full z-10 backface-hidden card-front group-hover:scale-[1.03] group-hover:shadow-2xl group-hover:border-blue-400 transition-all duration-300">
+                                            <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
                                                 {project.title}
                                             </h3>
-                                            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed">
+                                            <div className="mb-6 flex flex-wrap gap-3">
+                                                {project.languages.map((language, idx) => (
+                                                    <span
+                                                        key={idx}
+                                                        className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
+                                                    >
+                                                        {language}
+                                                    </span>
+                                                ))}
+                                            </div>
+                                            <div className="mb-6 flex gap-4">
+                                                {project.logos.map((logo, idx) => (
+                                                    <img
+                                                        key={idx}
+                                                        src={logo}
+                                                        alt="Technology Logo"
+                                                        className="h-10 w-10 object-contain rounded-md shadow-md hover:shadow-lg transition-all duration-300"
+                                                    />
+                                                ))}
+                                            </div>
+                                            <div className="mt-auto flex flex-col gap-3">
+                                                <a
+                                                    href={project.repoLink || '#'}
+                                                    target={project.repoLink ? '_blank' : '_self'}
+                                                    rel={project.repoLink ? 'noopener noreferrer' : ''}
+                                                    className={`inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg transition-all ${project.repoLink
+                                                        ? 'text-white bg-blue-600 hover:bg-blue-700'
+                                                        : 'text-gray-400 bg-gray-200 cursor-not-allowed'
+                                                        }`}
+                                                    disabled={!project.repoLink}
+                                                >
+                                                    <FaGithub className="inline mr-2" /> View Repository
+                                                </a>
+                                                <button
+                                                    className="inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg bg-yellow-400 text-gray-900 hover:bg-yellow-500 transition-all"
+                                                    onClick={() => handleFlip(index)}
+                                                >
+                                                    View Details
+                                                </button>
+                                            </div>
+                                        </div>
+                                        {/* Back Side */}
+                                        <div className="absolute inset-0 bg-gradient-to-br from-white to-gray-100 dark:from-gray-800 dark:to-gray-700 rounded-3xl p-8 flex flex-col h-full z-20 backface-hidden overflow-y-auto card-back"
+                                             style={{ transform: 'rotateY(180deg)' }}>
+                                            <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+                                                {project.title}
+                                            </h3>
+                                            <p className="text-gray-600 dark:text-gray-300 mb-6 leading-relaxed flex-1 overflow-y-auto">
                                                 {project.description}
                                             </p>
-                                        </div>
-                                        <div className="mt-auto">
-                                            <div className="mb-6">
-                                                <div className="flex flex-wrap gap-3">
-                                                    {project.languages.map((language, idx) => (
-                                                        <span
-                                                            key={idx}
-                                                            className="px-3 py-1 text-sm rounded-full bg-blue-100 text-blue-600 dark:bg-blue-900 dark:text-blue-300"
-                                                        >
-                                                            {language}
-                                                        </span>
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            <div className="mb-6">
-                                                <div className="flex gap-4">
-                                                    {project.logos.map((logo, idx) => (
-                                                        <img
-                                                            key={idx}
-                                                            src={logo}
-                                                            alt="Technology Logo"
-                                                            className="h-10 w-10 object-contain rounded-md shadow-md hover:shadow-lg transition-all duration-300"
-                                                        />
-                                                    ))}
-                                                </div>
-                                            </div>
-                                            <a
-                                                href={project.repoLink || '#'}
-                                                target={project.repoLink ? '_blank' : '_self'}
-                                                rel={project.repoLink ? 'noopener noreferrer' : ''}
-                                                className={`inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg transition-all ${project.repoLink
-                                                    ? 'text-white bg-blue-600 hover:bg-blue-700'
-                                                    : 'text-gray-400 bg-gray-200 cursor-not-allowed'
-                                                    }`}
-                                                disabled={!project.repoLink}
+                                            <button
+                                                className="inline-block px-6 py-3 rounded-full text-sm font-semibold shadow-lg bg-blue-600 text-white hover:bg-blue-700 transition-all mt-auto"
+                                                onClick={() => handleUnflip(index)}
                                             >
-                                                <FaGithub className="inline mr-2" /> View Repository
-                                            </a>
+                                                Back
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -98,12 +118,14 @@ const ProjectsPage = () => {
                         </div>
                     </div>
                 </section>
-
             </main>
-
             <Footer />
         </div>
     );
 };
 
+/* Add the following styles to your global CSS (e.g., index.css or a component style block):
+.perspective { perspective: 1200px; }
+.rotate-y-180 { transform: rotateY(180deg); }
+*/
 export default ProjectsPage;
